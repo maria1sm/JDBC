@@ -34,11 +34,10 @@ public class Login {
         try{
             sentencia.executeUpdate();
         } catch (SQLException e) {
-            throw new RegisterException("Fallo en el registro");
+            e.printStackTrace();
         }
         sentencia.close();
         connect().close();
-        System.out.println("Todo OK");
     }
     public static void registerForm () throws SQLException, ConnectException, RegisterException {
         Scanner sc = new Scanner(System.in);
@@ -63,9 +62,8 @@ public class Login {
         ResultSet resultado = sentencia.executeQuery("SELECT email, password FROM user");
         while (resultado.next()){
             if(resultado.getString(1).equals(email)) {
-                if (resultado.getString(2).equals(password)) {
+                if (BCrypt.checkpw(password, resultado.getString(2))) {
                     logged = true;
-                    System.out.println("Logged succesfully");
                 } else {
                     throw new LoginException("Error en el login");
                 }

@@ -37,6 +37,7 @@ public class Main {
                     } catch (ConnectException e) {
                         e.printStackTrace();
                     }
+                    System.out.println("Registered succesfully");
                     break;
                 case 3:
                     try {
@@ -48,6 +49,7 @@ public class Main {
                     } catch (LoginException e) {
                         e.printStackTrace();
                     }
+                    System.out.println("Logged succesfully");
                     break;
                 default:
                     System.out.println("saliendo...");

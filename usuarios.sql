@@ -20,20 +20,18 @@ USE `usuarios` ;
 -- -----------------------------------------------------
 -- Table `usuarios`.`user`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `usuarios`.`user` ;
-
 CREATE TABLE IF NOT EXISTS `usuarios`.`user` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
   `email` VARCHAR(60) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(260) NOT NULL,
   `createDate` DATE NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
   UNIQUE INDEX `username_UNIQUE` (`nombre` ASC) VISIBLE,
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 4
+AUTO_INCREMENT = 5
 DEFAULT CHARACTER SET = utf8mb3;
 
 
